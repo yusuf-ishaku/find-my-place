@@ -4,8 +4,12 @@ import {Box, Text, Image, Flex,  } from "@chakra-ui/react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import {BiTimeFive} from 'react-icons/bi';
+import {TiWeatherSunny} from 'react-icons/ti';
 import { Clock } from './assets/minor-components/clock';
+import { Weather_Indicator } from './assets/minor-components/weather-widget';
+import { useQuery, QueryClient, QueryClientProvider } from "react-query";
 function App() {
+  const client = new QueryClient()
 
   return (
     <>
@@ -26,6 +30,12 @@ function App() {
         <Box display='flex' justifyContent={'center'} alignItems={'center'}>
           <BiTimeFive style={{marginRight: '5px'}}></BiTimeFive>
           <Text><Clock></Clock></Text>
+        </Box>
+        <Box mx={'3'} display='flex' justifyContent={'center'} alignItems={'center'}>
+          <QueryClientProvider client={client}>
+            <Weather_Indicator></Weather_Indicator>
+          </QueryClientProvider>
+         
         </Box>
       </Box>
     </Box> 
