@@ -15,7 +15,7 @@ function App() {
       <Box display={'flex'}   bg={'gray.300'}  backdropFilter={'auto'}  blur={'2px'} padding={'0.4rem'} flexDirection={'row'} position={'absolute'} top={'0'} left={'5vw'}  zIndex={'9999'} width={'fit-content'} >
         <Box display='flex' justifyContent={'center'} alignItems={'center'}>
           <Text><BiTimeFive style={{marginRight: '5px'}}></BiTimeFive></Text>
-          <Text><Clock></Clock></Text>
+          <Clock></Clock>
         </Box>
           <Weather_Indicator></Weather_Indicator>
       </Box>

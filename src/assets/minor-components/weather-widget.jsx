@@ -10,7 +10,6 @@ export const Weather_Indicator = () =>{
             // console.log(position)
             let lat = position.coords.latitude;
             let lon= position.coords.longitude;
-            
             try{
                 Axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat + ", " + lon}?key=D6EC8H65AE48U4YKZ8KWLX67R`)
                 .then((response) =>setTemp(response.data.currentConditions.temp));
@@ -20,7 +19,7 @@ export const Weather_Indicator = () =>{
             }
             return position
         }
-        navigator.geolocation.getCurrentPosition(Success, () =>{alert("location access denied")});
+        navigator.geolocation.getCurrentPosition(Success, () =>{alert("location access denied" ); return});
     }, []);
     return(
         <>

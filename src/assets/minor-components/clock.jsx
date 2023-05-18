@@ -1,18 +1,22 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import {Box, Text} from '@chakra-ui/react'
 export const Clock = () =>{
-    const [date, setDate] = useState(new Date());
+    let newDate = new Date()
+    
+    const [date, setDate] = useState(newDate);
+    
+    useEffect(()=>{
+        const refreshClock = () =>{
+            setDate(new Date());
+        };
+        setInterval(refreshClock, 1000);
+    })
+   
     // console.log(date.toLocaleTimeString());
-    const refreshClock = () =>{
-        setDate(new Date());
-    };
-    setInterval(refreshClock, 1000);
+    
     return(
-        <>
-            <Box>
-                <Text>{date.toLocaleTimeString()}</Text>
-            </Box>
-        </>
-        
+        <Box as="div">
+            <Text>{date.toLocaleTimeString()}</Text>
+        </Box>
     )
 }
