@@ -15,7 +15,8 @@ export const Weather_Indicator = () =>{
                 .then((response) =>setTemp(response.data.currentConditions.temp));
                 
             }catch(err){
-                console.log(err)
+                console.log(err);
+                return alert("Error loading temperature data for your location")
             }
             return position
         }

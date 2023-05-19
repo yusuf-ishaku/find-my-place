@@ -21,7 +21,7 @@ export const MapPage = () =>{
         />
         <Marker position={point}>
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            This is your currently location.<br /> Easily customizable.
           </Popup>
         </Marker>
       </MapContainer>
