@@ -5,7 +5,7 @@ import {BiTimeFive} from 'react-icons/bi';
 import { Clock } from './assets/minor-components/clock';
 import { Weather_Indicator } from './assets/minor-components/weather-widget';
 import { MapPage } from './assets/minor-components/mapPage';
-import { BsFillPlayFill, BsPlayFill } from 'react-icons/bs';
+import { BsFillPlayFill, BsPlayFill, BsFillPeopleFill, BsSpotify } from 'react-icons/bs';
 import { AiOutlineStepBackward, AiFillStepForward, AiOutlineStepForward } from 'react-icons/ai';
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
           <Weather_Indicator></Weather_Indicator>
         </Box>
       </Box> 
-      <Flex w={'35vw'} h={'100vh'} borderLeftWidth={'1px'} borderColor={'gray.800'}>
+      <Flex w={'35vw'} flexDirection={'column'} h={'100vh'} borderLeftWidth={'1px'} borderColor={'gray.800'}>
         <Box display={'flex'} flexDirection={'column'} w={'100%'} h={'fit-content'} bg={'gray.600'} p={'4'}>
           <Box h={'fit-content'} display={'flex'} flexDirection={'row'}>
             <Image bg={'whiteAlpha.800'} w={'20'} alt='Fortune Image' h={'20'}>
@@ -38,7 +38,24 @@ function App() {
               <AiOutlineStepForward size={'28px'} style={{color: 'white'}}></AiOutlineStepForward>
           </Box>
         </Box>
-        
+        <Flex flexDirection={'column'}>
+            <Box width={'100%'} p={'4'}>
+              <Text fontSize={'xl'} color={'gray.800'}>Widgets</Text>
+            </Box>
+            <Flex flexDirection={'column'}>
+                <Flex flexDirection={'row'} borderWidth={'2px'}  alignItems={'center'} p={'4'} fontSize={'16px'} bg={'whiteAlpha.900'}>
+                    <BsFillPeopleFill style={{marginRight: "4px"}}></BsFillPeopleFill>
+                    Your People
+                </Flex>
+                <Flex flexDirection={'row'} borderWidth={'2px'} alignItems={'center'} p={'4'} fontSize={'16px'} bg={'whiteAlpha.900'}>
+                    <BsSpotify style={{marginRight: "4px"}}></BsSpotify>
+                    Spotify
+                </Flex>
+                <Flex flexDirection={'row'}>
+
+                </Flex>
+            </Flex>
+        </Flex>
       </Flex>
     </Flex>
         
