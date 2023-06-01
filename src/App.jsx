@@ -9,11 +9,17 @@ import { BsFillPlayFill, BsFillPeopleFill, BsSpotify } from 'react-icons/bs';
 import { AiOutlineStepBackward, AiOutlineStepForward } from 'react-icons/ai';
 // import { TfiControlForward } from "react-icons/tfi";
 import {FiMinimize2} from "react-icons/fi"
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+
 function App() {
   const [mapSize, setSize] = useState(35);
+  const userRef = useRef();
+  const appField = useRef();
   return (
     <>
+    <Box bg={'red'} ref={appField} position={'absolute'} marginBottom={'2vh'} zIndex={'9999'} bottom={'0'} left={'48%'} width={'40px'} height={'40px'} rounded={'full'}>
+
+    </Box>
       <Flex w={"100vw"} bg={"gray.100"}>
         <Box w={`${100 - mapSize}vw`} h={"100vh"}>
           <MapPage></MapPage>
@@ -41,6 +47,7 @@ function App() {
         </Box>
         <Flex
           w={`${mapSize}vw`}
+          ref={userRef}
           flexDirection={"column"}
           h={"100vh"}
           borderLeftWidth={"1px"}
@@ -81,6 +88,15 @@ function App() {
                 display={"flex"}
                 bg={'transparent'}
                 color='whiteAlpha.800'
+                onClick={() =>{
+                  // setSize(0);
+                  if(mapSize !== 0){
+                    console.log(userRef)
+                    userRef.current.hidden = true
+                    setSize(0)
+                  }
+                  // console.log(userRef)
+                }}
                 _hover={{
                   background: 'transparent'
                 }}
@@ -187,6 +203,7 @@ function App() {
                   <BsFillPeopleFill
                     size={"20px"}
                     style={{ marginRight: "0px" }}
+                    color='blue.900'
                   ></BsFillPeopleFill>
                 </Box>
                 <Text fontSize={"lg"} fontWeight={"medium"} color={'blue.900'}>
@@ -211,7 +228,8 @@ function App() {
                 >
                   <BsSpotify
                     size={"20px"}
-                    style={{ marginRight: "0px" }}
+                    style={{ marginRight: "0px",  }}
+                    
                   ></BsSpotify>
                 </Box>
                 <Text fontSize={"lg"} color={'blue.900'} fontWeight={"medium"}>
